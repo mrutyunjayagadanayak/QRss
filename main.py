@@ -9,6 +9,10 @@ class MainWindow(QMainWindow):
         super(MainWindow,self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.ui.addButton.clicked.connect(self.on_button_clicked)
+
+    def on_button_clicked(self):
+        print("button clicked")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

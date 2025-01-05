@@ -18,34 +18,47 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="addLineEdit"/>
+       <widget class="QLineEdit" name="feed_line_edit"/>
       </item>
       <item>
-       <widget class="QPushButton" name="removeButton">
+       <widget class="QPushButton" name="add_button">
         <property name="text">
-         <string>PushButton</string>
+         <string>Add Feed</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="addButton">
+       <widget class="QPushButton" name="remove_button">
         <property name="text">
-         <string>PushButton</string>
+         <string>Remove Feed</string>
         </property>
        </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,4">
       <item>
-       <widget class="QListWidget" name="listWidget"/>
+       <widget class="QListWidget" name="title_list"/>
       </item>
       <item>
-       <widget class="QTextBrowser" name="textBrowser"/>
+       <widget class="QTextBrowser" name="item_browser"/>
       </item>
       <item>
-       <widget class="QListWidget" name="listWidget_2"/>
+       <widget class="QListWidget" name="items_list"/>
       </item>
      </layout>
     </item>
@@ -64,18 +77,18 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionQuit"/>
-    <addaction name="actionAbout"/>
+    <addaction name="action_quit"/>
+    <addaction name="action_about"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionQuit">
+  <action name="action_quit">
    <property name="text">
     <string>Quit</string>
    </property>
   </action>
-  <action name="actionAbout">
+  <action name="action_about">
    <property name="text">
     <string>About</string>
    </property>

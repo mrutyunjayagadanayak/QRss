@@ -20,3 +20,7 @@ class Data_Store:
         self.feeds_data[title] = items
         print(self.feeds_data[title])
         return title
+
+    def remove_feed(self, feed_name):
+        if feed_name in self.feeds_data:
+            del self.feeds_data[feed_name]

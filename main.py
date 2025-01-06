@@ -1,5 +1,5 @@
 import sys
-import feedparser
+
 from PySide6.QtWidgets import QApplication, QMainWindow , QMessageBox
 from PySide6.QtCore import QFile
 
@@ -20,23 +20,28 @@ class MainWindow(QMainWindow):
         self.ui.action_quit.triggered.connect(QCoreApplication.quit)
         self.ui.action_about.triggered.connect(self.on_about_clicked)
 
-        self.ui.add_button.clicked.connect(self.on_addbutton_clicked)
-        self.ui.remove_button.clicked.connect(self.on_removebutton_clicked)
+        self.ui.add_button.clicked.connect(self.on_add_button_clicked)
+        self.ui.remove_button.clicked.connect(self.on_remove_button_clicked)
 
         self.data_store = Data_Store()
 
 
-    def on_addbutton_clicked(self):
+    def on_add_button_clicked(self):
         url = self.ui.feed_line_edit.text()
         if url_validator(url):
             self.ui.title_list.addItem(self.data_store.add_to_feed(url))
-
+            self.ui.feed_line_edit.clear()
         else:
             QMessageBox().warning(self,"Invalid FEED","Entered feed URL is incorrect, Please enter a valid URL")
 
 
-    def on_removebutton_clicked(self):
-        print("Remove button clicked")
+
+    def on_remove_button_clicked(self):
+        selected_feed = self.ui.title_list.currentItem()
+
+        self.data_store.remove_feed(selected_feed.text())
+        self.ui.title_list.takeItem(self.ui.title_list.row(selected_feed))
+
 
     def on_about_clicked(self):
         msgbox = QMessageBox()

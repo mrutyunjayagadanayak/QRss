@@ -65,15 +65,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.title_list)
 
-        self.item_browser = QTextBrowser(self.centralwidget)
-        self.item_browser.setObjectName(u"item_browser")
-
-        self.horizontalLayout_2.addWidget(self.item_browser)
-
         self.items_list = QListWidget(self.centralwidget)
         self.items_list.setObjectName(u"items_list")
 
         self.horizontalLayout_2.addWidget(self.items_list)
+
+        self.item_browser = QTextBrowser(self.centralwidget)
+        self.item_browser.setObjectName(u"item_browser")
+
+        self.horizontalLayout_2.addWidget(self.item_browser)
 
         self.horizontalLayout_2.setStretch(0, 1)
         self.horizontalLayout_2.setStretch(1, 1)

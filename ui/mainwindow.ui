@@ -55,10 +55,10 @@
        <widget class="QListWidget" name="title_list"/>
       </item>
       <item>
-       <widget class="QTextBrowser" name="item_browser"/>
+       <widget class="QListWidget" name="items_list"/>
       </item>
       <item>
-       <widget class="QListWidget" name="items_list"/>
+       <widget class="QTextBrowser" name="item_browser"/>
       </item>
      </layout>
     </item>

@@ -26,12 +26,20 @@ class MainWindow(QMainWindow):
 
         self.data_store = DataStore()
 
+        self.load_all_titles()
+
 
     def on_add_button_clicked(self):
         url = self.ui.feed_line_edit.text()
         if url_validator(url):
-            self.ui.title_list.addItem(self.data_store.add_to_feed(url))
-            self.ui.feed_line_edit.clear()
+
+            title = self.data_store.add_to_feed(url)
+
+            if title != "Feed exists":
+                self.ui.title_list.addItem(self.data_store.add_to_feed(url))
+                self.ui.feed_line_edit.clear()
+            else:
+                QMessageBox().warning(self,title, "Entered feed already existed in the database")
         else:
             QMessageBox().warning(self,"Invalid FEED","Entered feed URL is incorrect, Please enter a valid URL")
 
@@ -70,6 +78,12 @@ class MainWindow(QMainWindow):
         if item_details != "":
             self.ui.item_browser.setText(item_details)
 
+    def load_all_titles(self):
+        titles = self.data_store.get_all_titles()
+
+        if titles:
+            for title in titles:
+                self.ui.title_list.addItem(title)
 
 
 if __name__ == "__main__":
